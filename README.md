@@ -1,3 +1,4 @@
+ข้อมูลผู้จัดทำโครงงาน : นายนิธิ วรรณวงษ์ (รหัสนิสิต: 67160346)
 # Demandly — Storytelling Business Dashboard & BI Canvas
 ## รายวิชา Business Idea Creation & Data Warehouse / Business Intelligence
 
@@ -22,7 +23,7 @@
    - **Trust Layer** แสดง Data Freshness และ Reconciliation
    - สลับมุมมองตามตำแหน่งงานได้ (Tactical, Strategic, Operational)
 3. **👥 ข้อมูลผู้จัดทำโครงงาน (Project Developer):**
-   - **นายนิธิ วรรณวงษ์ (รหัสนิสิต: 67160346)
+   - **นายนิธิ วรรณวงษ์ (รหัสนิสิต: 67160346)** — Product Owner, Data Warehouse & Full-stack Developer
    - ระบบ Interactive Member Management สำหรับแก้ไขหรือเพิ่มสมาชิกในทีม
 4. **📦 ส่งเป็น Repository:**
    - โครงสร้าง Git Repository พร้อมใช้งาน

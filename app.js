@@ -157,7 +157,7 @@ const METRIC_DEFS = {
 const DEFAULT_MEMBERS = [
   {
     id: "nithi",
-    name: "นายนิธิ พิมพ์ประเสริฐ",
+    name: "นายนิธิ วรรณวงษ์",
     studentId: "67160346",
     role: "Product Owner, Data Warehouse & Full-stack Developer",
     duty: "ออกแบบและพัฒนา Web Application, Star Schema, Semantic Layer, Demand Forecasting และ Storytelling Dashboard",
