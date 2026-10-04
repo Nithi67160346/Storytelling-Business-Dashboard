@@ -38,7 +38,6 @@ D:\University\KPI\
 ├── start.cmd                            # ตัวเรียกเปิดเว็บด้วยการคลิกครั้งเดียว
 ├── BUSINESS_DASHBOARD_STORYTELLING.md   # รายงานส่งงานฉบับสมบูรณ์
 ├── README.md                            # คู่มือการใช้งานนี้
-├── BusinessDashboard.pdf                # เอกสารโจทย์และสไลด์บรรยายของอาจารย์
 └── datasets/                            # ชุดข้อมูลที่ใช้ในระบบ
     ├── 01_stable_demand.csv             # ยอดขายคงที่
     ├── 03_seasonal_demand.csv           # ยอดขายตามฤดูกาล
