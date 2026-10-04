@@ -156,18 +156,11 @@ const METRIC_DEFS = {
 
 const DEFAULT_MEMBERS = [
   {
-    id: "natthawat",
-    name: "นายณัฐวัฒน์ ศรีสุขใส",
-    studentId: "67160168",
-    role: "Data Warehouse Architect & BI Specialist",
-    duty: "ออกแบบ Star Schema, โมเดล Fact & Dimension, Semantic Metric Definition, และการทดสอบ WAPE Indexing",
-  },
-  {
     id: "nithi",
     name: "นายนิธิ พิมพ์ประเสริฐ",
     studentId: "67160346",
-    role: "Product Owner & Lead Full-stack Developer",
-    duty: "พัฒนา Interactive Web Application, Demandly Platform Architecture, และ Data Storytelling Dashboard",
+    role: "Product Owner, Data Warehouse & Full-stack Developer",
+    duty: "ออกแบบและพัฒนา Web Application, Star Schema, Semantic Layer, Demand Forecasting และ Storytelling Dashboard",
   },
 ];
 
@@ -194,7 +187,11 @@ function initMembers() {
   try {
     const saved = localStorage.getItem("kpi_group_members");
     if (saved) {
-      members = JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      // Keep only current author
+      members = parsed.filter(m => m.studentId === "67160346");
+      if (!members.length) members = [...DEFAULT_MEMBERS];
+      saveMembers();
     }
   } catch (e) {
     console.warn("Could not read members from localStorage", e);

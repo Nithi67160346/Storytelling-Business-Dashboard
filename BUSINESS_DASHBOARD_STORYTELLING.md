@@ -158,8 +158,7 @@
 
 | ลำดับ | รหัสนิสิต | ชื่อ - นามสกุล | บทบาทหน้าที่ในโครงงาน (Project Role) | ความรับผิดชอบหลัก |
 |:---:|:---:|:---|:---|:---|
-| 1 | **67160168** | **นายณัฐวัฒน์ ศรีสุขใส** | Data Warehouse Architect & BI Specialist | • ออกแบบ Star Schema, ตาราง Fact & Dimensions<br>• นิยาม Semantic Metrics และ Data Dictionary<br>• ออกแบบชุดข้อมูลจำลอง 5 สถานการณ์ และการทดสอบ WAPE Indexing |
-| 2 | **67160346** | **นายนิธิ พิมพ์ประเสริฐ** | Product Owner & Lead Full-stack Developer | • สถาปัตยกรรม Web Application และระบบ Demandly<br>• พัฒนา Interactive Storytelling Dashboard UI<br>• เชื่อมต่อโมเดล AI Demand Forecasting และจัดเตรียม Repository |
+| 1 | **67160346** | **นายนิธิ พิมพ์ประเสริฐ** | Product Owner, Data Warehouse & Full-stack Developer | • สถาปัตยกรรม Web Application และระบบ Demandly<br>• ออกแบบ Star Schema, ตาราง Fact & Dimensions<br>• นิยาม Semantic Metrics และ Data Dictionary<br>• พัฒนา Interactive Storytelling Dashboard UI<br>• เชื่อมต่อโมเดล AI Demand Forecasting และจัดเตรียม Repository |
 
 *(หมายเหตุ: สามารถแก้ไขหรือเพิ่มรายชื่อสมาชิกกลุ่มผ่านแบบฟอร์ม Interactive ในหน้าเว็บ Tab 4 ได้ โดยระบบจะบันทึกลง LocalStorage อัตโนมัติ)*
 
