@@ -22,7 +22,7 @@
    - **Trust Layer** แสดง Data Freshness และ Reconciliation
    - สลับมุมมองตามตำแหน่งงานได้ (Tactical, Strategic, Operational)
 3. **👥 ข้อมูลผู้จัดทำโครงงาน (Project Developer):**
-   - **นายนิธิ พิมพ์ประเสริฐ (รหัสนิสิต: 67160346)** — Product Owner, Data Warehouse & Full-stack Developer
+   - **นายนิธิ วรรณวงษ์ (รหัสนิสิต: 67160346)
    - ระบบ Interactive Member Management สำหรับแก้ไขหรือเพิ่มสมาชิกในทีม
 4. **📦 ส่งเป็น Repository:**
    - โครงสร้าง Git Repository พร้อมใช้งาน
