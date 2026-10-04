@@ -5,33 +5,6 @@
 โปรเจกต์เว็บแอปพลิเคชัน Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard) ออกแบบตามหลักสูตรการสอนในเอกสาร `BusinessDashboard.pdf` ครบทุกหัวข้อ
 เพื่อตอบโจทย์ทางธุรกิจของสตาร์ทอัพ **Demandly (AI Demand Forecasting & Healthcare Inventory Logistics)**
 
----
-
-## 📌 สิ่งที่ส่งตามโจทย์ของอาจารย์ 4 ข้อ
-
-1. **📁 Data ที่ใช้ (Datasets & Star Schema):**
-   - มีชุดข้อมูลในโฟลเดอร์ `datasets/` (`01_stable_demand.csv`, `03_seasonal_demand.csv`, `04_demand_spike.csv`, `demandly_star_schema.json`)
-   - มีการออกแบบ **Star Schema Architecture** (Fact Table `fact_demand_sales` + 4 Dimension Tables) ตามสไลด์ที่ 11
-   - มีตาราง Data Dictionary และ Data Preview ในหน้าเว็บพร้อมปุ่มดาวน์โหลดไฟล์จริง
-2. **📊 Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard):**
-   - ออกแบบตามหลัก **Decision Backward Framework** (Decision → Signal → Metric → Data → Design)
-   - หน้าจอมี **Storytelling Headline** ตามสูตรสไลด์ 18: *"ตัวเลขสำคัญ + ทิศทาง + สาเหตุที่น่าสงสัย + Action"*
-   - **4 KPI Cards** พร้อมปุ่มกดดูนิยามครบ 5 ช่อง (Name, Formula, Grain, Dimension, Target, Owner) ตามสไลด์ 10
-   - **Main Story Chart** (Line & Area Chart) แสดง Actual vs AI Forecast vs Safety Stock vs Out-of-Stock Danger
-   - **Sorted Horizontal Bar Chart** เปรียบเทียบ Stock Cover Days ทุก SKU
-   - **Exception Action Matrix** ระบุใครรับ alert, ทำอะไร, ไม่ทำเสียหายอะไร พร้อมปุ่มกด "อนุมัติ Action ทันที"
-   - **Trust Layer** แสดง Data Freshness และ Reconciliation
-   - สลับมุมมองตามตำแหน่งงานได้ (Tactical, Strategic, Operational)
-3. **👥 ข้อมูลผู้จัดทำโครงงาน (Project Developer):**
-   - **นายนิธิ วรรณวงษ์ (รหัสนิสิต: 67160346)** — Product Owner, Data Warehouse & Full-stack Developer
-   - ระบบ Interactive Member Management สำหรับแก้ไขหรือเพิ่มสมาชิกในทีม
-4. **📦 ส่งเป็น Repository:**
-   - โครงสร้าง Git Repository พร้อมใช้งาน
-   - เอกสารรายงานฉบับสมบูรณ์: `BUSINESS_DASHBOARD_STORYTELLING.md`
-   - ลิงก์ GitHub: [https://github.com/Nithi67160346/Storytelling-Business-Dashboard](https://github.com/Nithi67160346/Storytelling-Business-Dashboard)
-
----
-
 ## 🚀 วิธีการเปิดใช้งาน Web Application
 
 ### วิธีที่ 1: ดับเบิลคลิกไฟล์ (ง่ายและเร็วที่สุด)
