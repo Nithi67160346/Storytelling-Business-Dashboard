@@ -16,33 +16,28 @@
     <div class="header-top">
       <span class="badge-tag">Business Idea Creation · BI &amp; Dashboard Design</span>
       <div class="header-meta-info">
-        <span><span class="live-dot"></span> ข้อมูลสด: วันนี้ 09:42 น. (Latency &lt; 5 นาที)</span>
-        <span>|</span>
-        <span>Model: Chronos-AI Ensemble v2.4</span>
+        <span>ข้อมูลจำลองสำหรับการเรียน</span>
       </div>
     </div>
 
     <div class="header-title-wrap">
       <h1 class="header-title">Demandly — AI Demand Forecasting &amp; Inventory Risk Dashboard</h1>
-      <p class="header-desc">
-        ระบบ Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard) ออกแบบตามหลัก Decision Backward และ BI Canvas (จาก BusinessDashboard.pdf)
-        เพื่อวิเคราะห์อุปสงค์และป้องกันวิกฤตสต็อกเวชภัณฑ์ขาดแคลนสำหรับสตาร์ทอัพในวิชา Business Idea Creation
-      </p>
+      <p class="header-desc">Dashboard เล่าเรื่องการพยากรณ์ความต้องการและความเสี่ยงสต็อกเวชภัณฑ์ของ Demandly ไอเดียธุรกิจในวิชา Business Idea Creation</p>
     </div>
 
     <!-- Navigation Tabs -->
     <nav class="main-nav-tabs" aria-label="แถบเมนูส่งงาน">
       <button type="button" class="nav-tab-btn active" data-tab="dashboard">
-        📊 1. Storytelling Dashboard
+        Dashboard
       </button>
       <button type="button" class="nav-tab-btn" data-tab="data">
-        📁 2. Data ที่ใช้ (Star Schema &amp; CSV)
+        ข้อมูลที่ใช้
       </button>
       <button type="button" class="nav-tab-btn" data-tab="canvas">
-        📋 3. Dashboard Brief Canvas (Slide 29)
+        Dashboard Brief
       </button>
       <button type="button" class="nav-tab-btn" data-tab="group">
-        👥 4. รายชื่อกลุ่ม (Group Members)
+        รายชื่อกลุ่ม
       </button>
     </nav>
   </header>
@@ -50,11 +45,10 @@
   <!-- TAB 1: STORYTELLING DASHBOARD -->
   <main id="tab-dashboard" class="tab-panel active">
 
-    <!-- Storytelling Headline Box (Slide 18) -->
+    <!-- Storytelling Headline Box -->
     <section id="storyline-card" class="storyline-card">
       <div class="storyline-top">
         <span id="story-pill" class="story-pill pill-danger">🚨 สัญญาณวิกฤตสต็อก (Critical Alert)</span>
-        <span class="formula-tag">สูตร Data Storytelling: <strong>ตัวเลขสำคัญ + ทิศทาง + สาเหตุที่น่าสงสัย + Action</strong></span>
       </div>
       <div id="storyline-text" class="storyline-text">
         กำลังโหลดข้อมูลเชิงเล่าเรื่อง...
@@ -64,7 +58,7 @@
       </div>
     </section>
 
-    <!-- Decision Backward Flow Bar (Slide 7) -->
+    <!-- Decision Backward Flow Bar -->
     <section class="decision-bar">
       <div class="step-item">
         <span class="step-kicker">1. Decision</span>
@@ -133,7 +127,7 @@
         </div>
       </div>
 
-      <!-- Persona Switcher (Slide 8 & 12) -->
+      <!-- Persona Switcher -->
       <div class="filter-unit">
         <span class="filter-label">มุมมองตามตำแหน่งงาน (Persona)</span>
         <div class="persona-switch">
@@ -144,13 +138,13 @@
       </div>
     </section>
 
-    <!-- 4 KPI Cards with 5-Field Metric Definition Tooltip (Slide 10 & 15) -->
+    <!-- 4 KPI Cards with 5-Field Metric Definition Tooltip -->
     <section class="kpi-grid">
       <!-- KPI 1 -->
       <div class="kpi-card">
         <div class="kpi-top">
           <span class="kpi-title">Forecast Demand (30D)</span>
-          <button type="button" class="info-btn" data-metric="forecastDemand" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+          <button type="button" class="info-btn" data-metric="forecastDemand" title="ดูนิยามของ KPI">ℹ</button>
         </div>
         <div class="kpi-value-row">
           <span id="kpi-demand-val" class="kpi-value">20,430</span>
@@ -166,7 +160,7 @@
       <div class="kpi-card">
         <div class="kpi-top">
           <span class="kpi-title">Stock Cover Days</span>
-          <button type="button" class="info-btn" data-metric="coverDays" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+          <button type="button" class="info-btn" data-metric="coverDays" title="ดูนิยามของ KPI">ℹ</button>
         </div>
         <div class="kpi-value-row">
           <span id="kpi-cover-val" class="kpi-value">17.8 วัน</span>
@@ -182,7 +176,7 @@
       <div class="kpi-card">
         <div class="kpi-top">
           <span class="kpi-title">Forecast Accuracy (WAPE)</span>
-          <button type="button" class="info-btn" data-metric="wapeAccuracy" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+          <button type="button" class="info-btn" data-metric="wapeAccuracy" title="ดูนิยามของ KPI">ℹ</button>
         </div>
         <div class="kpi-value-row">
           <span id="kpi-acc-val" class="kpi-value">91.2%</span>
@@ -198,7 +192,7 @@
       <div class="kpi-card">
         <div class="kpi-top">
           <span class="kpi-title">Stockout Risk SKUs</span>
-          <button type="button" class="info-btn" data-metric="riskSkus" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+          <button type="button" class="info-btn" data-metric="riskSkus" title="ดูนิยามของ KPI">ℹ</button>
         </div>
         <div class="kpi-value-row">
           <span id="kpi-risk-val" class="kpi-value">3 รายการ</span>
@@ -211,7 +205,7 @@
       </div>
     </section>
 
-    <!-- Chart Row (Slide 14 & 15: Main Story Chart + Sorted Bar Chart) -->
+    <!-- Chart Row -->
     <section class="chart-row">
       <!-- Main Story Line Chart -->
       <article class="panel-card">
@@ -233,12 +227,12 @@
         </div>
       </article>
 
-      <!-- Sorted Bar Chart for Stock Cover Days (Slide 13 & 14) -->
+      <!-- Sorted Bar Chart for Stock Cover Days -->
       <article class="panel-card">
         <div class="panel-header">
           <div>
             <h3 class="panel-title">Stock Cover Days ทุก SKU</h3>
-            <p class="panel-subtitle">จัดอันดับจากวิกฤตที่สุด (Length &amp; Position Encoding)</p>
+            <p class="panel-subtitle">เรียงจากเสี่ยงที่สุดไปน้อยที่สุด</p>
           </div>
         </div>
 
@@ -252,12 +246,12 @@
       </article>
     </section>
 
-    <!-- Exception Table & Action Support (Slide 17 Alert Design) -->
+    <!-- Exception Table & Action Support -->
     <section class="panel-card">
       <div class="panel-header">
         <div>
-          <h3 class="panel-title">ตารางข้อยกเว้นและการตัดสินใจ (Exception List &amp; Action-Oriented Decision)</h3>
-          <p class="panel-subtitle">ตอบคำถาม: ใครต้องรับ Alert นี้? รับแล้วต้องทำอะไร? ถ้าไม่ทำจะเกิดความเสียหายอะไร?</p>
+          <h3 class="panel-title">รายการสินค้าที่ต้องตัดสินใจ</h3>
+          <p class="panel-subtitle">สินค้าที่ต้องจัดการ ผลกระทบถ้าไม่ทำ และ action ที่แนะนำ</p>
         </div>
       </div>
 
@@ -280,32 +274,31 @@
       </div>
     </section>
 
-    <!-- Trust Layer (Slide 19) -->
+    <!-- Trust Layer -->
     <footer class="trust-bar">
-      <span><span class="trust-check">✓</span> <strong>Data Freshness:</strong> อัปเดตทุก 15 นาที (ล่าสุด 09:42 น.)</span>
-      <span><span class="trust-check">✓</span> <strong>Semantic Layer:</strong> นิยามตรงกันระหว่างทีม Sales, Warehouse, และ Finance</span>
-      <span><span class="trust-check">✓</span> <strong>Reconciliation:</strong> เชื่อมโยงระบบ ERP &amp; PostgreSQL 100%</span>
-      <span><span class="trust-check">✓</span> <strong>Data Quality Score:</strong> 98.4% (ผ่านเกณฑ์มาตรฐาน)</span>
+      <span><strong>แหล่งข้อมูล:</strong> ไฟล์ CSV ในโฟลเดอร์ datasets/ (ข้อมูลจำลอง)</span>
+      <span><strong>Grain:</strong> รายวัน × สินค้า × ภูมิภาค</span>
+      <span><strong>นิยาม KPI:</strong> กดปุ่ม ℹ ที่การ์ด KPI เพื่อดูสูตร เป้าหมาย และผู้รับผิดชอบ</span>
     </footer>
 
   </main>
 
-  <!-- TAB 2: DATA USED & STAR SCHEMA (โจทย์ข้อ 1) -->
+  <!-- TAB 2: DATA USED & STAR SCHEMA -->
   <section id="tab-data" class="tab-panel">
     <div class="panel-card">
       <div class="panel-header">
         <div>
-          <h3 class="panel-title">โจทย์ข้อ 1: ส่ง Data ที่ใช้ (Data Warehouse &amp; Star Schema)</h3>
-          <p class="panel-subtitle">โครงสร้างตาราง Fact, Dimensions, Data Dictionary และไฟล์ข้อมูลตัวจริงที่ใช้ในการวิเคราะห์</p>
+          <h3 class="panel-title">ข้อมูลที่ใช้ (Data Warehouse &amp; Star Schema)</h3>
+          <p class="panel-subtitle">โครงสร้างตาราง Fact, Dimensions, Data Dictionary และตัวอย่างข้อมูล</p>
         </div>
       </div>
 
       <!-- Download Ribbon -->
       <div class="download-ribbon">
         <div>
-          <strong style="color:#166534;font-size:14px;">📥 ดาวน์โหลดชุดข้อมูลจำลอง 5 สถานการณ์ (รวม 273,000 แถว)</strong>
+          <strong style="color:#166534;font-size:14px;">ไฟล์ข้อมูลที่ใช้ (ข้อมูลจำลอง 3 สถานการณ์: คงที่ / ตามฤดูกาล / พุ่งจากโรคระบาด)</strong>
           <p style="font-size:12px;color:#15803d;margin-top:2px;">
-            ไฟล์ข้อมูลที่ใช้จริงในโปรเจกต์ Demandly อยู่ในโฟลเดอร์ datasets/ สามารถดาวน์โหลดหรือนำเข้าผ่านระบบได้ทันที
+            ไฟล์ทั้งหมดอยู่ในโฟลเดอร์ datasets/ ของ repository
           </p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
@@ -315,10 +308,10 @@
         </div>
       </div>
 
-      <!-- Star Schema Diagram (Slide 11) -->
+      <!-- Star Schema Diagram -->
       <div class="schema-hero-card">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <h3 style="color:#ffffff;font-size:16px;">สถาปัตยกรรม Star Schema (Slide 11 ใน BusinessDashboard.pdf)</h3>
+          <h3 style="color:#ffffff;font-size:16px;">Star Schema</h3>
           <span style="font-size:11px;color:#38e1cb;background:rgba(56,225,203,0.15);padding:4px 10px;border-radius:12px;">
             Grain: Daily Transaction per Product SKU per Regional DC Hub
           </span>
@@ -392,7 +385,7 @@
                 <li><strong>scenario_key (PK)</strong>: INT</li>
                 <li>scenario_name: VARCHAR(50)</li>
                 <li>epidemic_index: DECIMAL(4,2)</li>
-                <li>growth_multiplier: DECIMAL(4,2)</li>
+                <li>macro_multiplier: DECIMAL(4,2)</li>
               </ul>
             </div>
           </div>
@@ -456,86 +449,34 @@
 
       <!-- Raw Data Preview -->
       <h4 style="margin:24px 0 10px;font-size:15px;color:var(--text-main);">
-        ตัวอย่างข้อมูลจริง (Sample Rows จาก datasets/04_demand_spike.csv)
+        ตัวอย่างข้อมูล (5 แถวแรกของ datasets/04_demand_spike.csv)
       </h4>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Product Code</th>
-              <th>Product Name</th>
-              <th>Region</th>
-              <th>Sales Qty</th>
-              <th>Inventory</th>
-              <th>Cover Days</th>
-              <th>Risk Status</th>
+              <th>sale_date</th><th>product_code</th><th>region</th><th>sales_quantity</th><th>inventory</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>2025-06-01</td>
-              <td>TK-A-001</td>
-              <td>Test Kit A</td>
-              <td>Bangkok</td>
-              <td>980</td>
-              <td>12,100</td>
-              <td>17.8 วัน</td>
-              <td><span class="story-pill pill-danger">CRITICAL</span></td>
-            </tr>
-            <tr>
-              <td>2025-06-01</td>
-              <td>GL-B-014</td>
-              <td>Nitrile Gloves M</td>
-              <td>Central</td>
-              <td>1,733</td>
-              <td>68,700</td>
-              <td>39.6 วัน</td>
-              <td><span class="story-pill pill-success">NORMAL</span></td>
-            </tr>
-            <tr>
-              <td>2025-06-01</td>
-              <td>MK-C-028</td>
-              <td>Medical Mask Level 3</td>
-              <td>Eastern</td>
-              <td>1,273</td>
-              <td>31,800</td>
-              <td>25.0 วัน</td>
-              <td><span class="story-pill pill-warning">WARNING</span></td>
-            </tr>
-            <tr>
-              <td>2025-06-01</td>
-              <td>SY-D-039</td>
-              <td>Safety Syringe 5ml</td>
-              <td>North</td>
-              <td>920</td>
-              <td>41,100</td>
-              <td>44.7 วัน</td>
-              <td><span class="story-pill pill-success">NORMAL</span></td>
-            </tr>
-            <tr>
-              <td>2025-06-01</td>
-              <td>AG-E-052</td>
-              <td>Antigen Solution</td>
-              <td>South</td>
-              <td>560</td>
-              <td>14,600</td>
-              <td>26.1 วัน</td>
-              <td><span class="story-pill pill-warning">WARNING</span></td>
-            </tr>
+            <tr><td>2024-10-01</td><td>TK-A-001</td><td>กรุงเทพฯ</td><td>174</td><td>3,191</td></tr>
+            <tr><td>2024-10-01</td><td>TK-A-001</td><td>ภาคกลาง</td><td>146</td><td>2,896</td></tr>
+            <tr><td>2024-10-01</td><td>TK-A-001</td><td>ภาคตะวันออก</td><td>116</td><td>2,078</td></tr>
+            <tr><td>2024-10-01</td><td>TK-A-001</td><td>ภาคเหนือ</td><td>96</td><td>1,481</td></tr>
+            <tr><td>2024-10-01</td><td>TK-A-001</td><td>ภาคใต้</td><td>131</td><td>2,372</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- TAB 3: DASHBOARD BRIEF CANVAS (Slide 29) -->
+  <!-- TAB 3: DASHBOARD BRIEF CANVAS -->
   <section id="tab-canvas" class="tab-panel">
     <div class="panel-card">
       <div class="panel-header">
         <div>
-          <h3 class="panel-title">โจทย์ Workshop: Dashboard Brief Canvas (ตาม Slide 29)</h3>
-          <p class="panel-subtitle">การวิเคราะห์ 6 ช่องตามตรรกะ Decision Backward ก่อนวาดและสร้าง Dashboard</p>
+          <h3 class="panel-title">Dashboard Brief Canvas</h3>
+          <p class="panel-subtitle">ใครใช้ ตัดสินใจอะไร ดู KPI อะไร และเห็นแล้วทำอะไรต่อ</p>
         </div>
       </div>
 
@@ -603,9 +544,9 @@
           <span class="canvas-card-kicker">6. Action (เห็นแล้วทำอะไรต่อ?)</span>
           <h4 class="canvas-card-title">Action ทางธุรกิจที่ชัดเจน</h4>
           <div class="canvas-card-desc">
-            <strong>1. One-Click PO Expedite:</strong> ส่งคำขอสั่งซื้อเร่งด่วนเข้าสู่ระบบ ERP ทันที
+            <strong>1. One-Click PO Expedite:</strong> กดอนุมัติเพื่อบันทึกคำขอสั่งซื้อเร่งด่วน
             <br>
-            <strong>2. Inter-DC Stock Transfer:</strong> ออกใบคำขอเบิกย้ายสินค้าข้ามคลังอัตโนมัติ
+            <strong>2. Inter-DC Stock Transfer:</strong> ขอโอนย้ายสินค้าข้ามคลัง
             <br>
             <strong>3. ป้องกัน Stockout:</strong> รักษา SLA และลดความสูญเสียยอดขาย
           </div>
@@ -615,25 +556,25 @@
       <!-- Wireframe Layout & Chart Rationale -->
       <div style="margin-top:24px;padding:20px;background:#f8fafc;border-radius:10px;border:1px solid var(--border);">
         <h4 style="margin:0 0 12px;color:var(--text-main);font-size:15px;">
-          การเลือกชาร์ตและโครงสร้าง Wireframe (Visual Encoding ตาม Slide 13 - 17)
+          เหตุผลที่เลือกชาร์ต
         </h4>
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;font-size:13px;color:#334155;">
           <div>
             <strong style="color:var(--blue);">1. Main Story Chart (Line + Area):</strong>
             <p style="margin-top:4px;">
-              เลือก Line Chart เพื่อแสดง <em>Trend over time</em> (Slide 14) เปรียบเทียบ Actual vs Forecast พร้อมเส้น Threshold สองระดับ เพื่อให้สมองมองเห็นช่องว่างความเสี่ยงในเสี้ยววินาที
+              เลือก Line Chart เพื่อแสดง <em>Trend over time</em> เปรียบเทียบ Actual vs Forecast พร้อมเส้น Threshold สองระดับ เพื่อให้สมองมองเห็นช่องว่างความเสี่ยงในเสี้ยววินาที
             </p>
           </div>
           <div>
             <strong style="color:var(--primary);">2. Sorted Bar Chart:</strong>
             <p style="margin-top:4px;">
-              เลือก Sorted Horizontal Bar Chart สำหรับ Stock Cover Days เพราะ <em>Length และ Position</em> (Slide 13) ทำให้อ่านและเปรียบเทียบความเสี่ยงของแต่ละ SKU ได้แม่นยำที่สุด
+              เลือก Sorted Horizontal Bar Chart สำหรับ Stock Cover Days เพราะ <em>Length และ Position</em> ทำให้อ่านและเปรียบเทียบความเสี่ยงของแต่ละ SKU ได้แม่นยำที่สุด
             </p>
           </div>
           <div>
             <strong style="color:var(--danger);">3. Alert &amp; Exception Design:</strong>
             <p style="margin-top:4px;">
-              ออกแบบระบบแจ้งเตือนแบบ Action-Oriented (Slide 17) ระบุชัดเจนว่าใครต้องรับ ผลกระทบคืออะไร และมีปุ่ม Take Action ทันที ป้องกัน Anti-pattern ปล่อยสัญญาณเตือนค้างไว้
+              ออกแบบระบบแจ้งเตือนแบบ Action-Oriented ระบุชัดเจนว่าใครต้องรับ ผลกระทบคืออะไร และมีปุ่ม Take Action ทันที ป้องกัน Anti-pattern ปล่อยสัญญาณเตือนค้างไว้
             </p>
           </div>
         </div>
@@ -641,13 +582,13 @@
     </div>
   </section>
 
-  <!-- TAB 4: GROUP MEMBERS (โจทย์ข้อ 3) -->
+  <!-- TAB 4: GROUP MEMBERS -->
   <section id="tab-group" class="tab-panel">
     <div class="panel-card">
       <div class="panel-header">
         <div>
-          <h3 class="panel-title">โจทย์ข้อ 3: รายชื่อกลุ่ม (รายวิชา Business Idea Creation)</h3>
-          <p class="panel-subtitle">ข้อมูลสมาชิกผู้จัดทำโครงงานระบบ Demandly AI Demand Forecasting &amp; Dashboard Design</p>
+          <h3 class="panel-title">รายชื่อกลุ่ม</h3>
+          <p class="panel-subtitle">รายวิชา Business Idea Creation</p>
         </div>
       </div>
 
@@ -655,15 +596,15 @@
         <!-- Injected by app.js -->
       </div>
 
-      <!-- Repository Info (โจทย์ข้อ 4) -->
+      <!-- Repository Info -->
       <div style="margin-top:28px;padding:22px;background:#f0f9ff;border-radius:12px;border:1px solid #bae6fd;">
         <h4 style="margin:0 0 10px;color:#0369a1;font-size:15px;">
-          โจทย์ข้อ 4: ข้อมูลสำหรับการส่งงานในรูปแบบ Repository
+          Repository
         </h4>
         <div style="font-size:13px;color:#0c4a6e;line-height:1.75;">
           <div><strong>GitHub Repository:</strong> <a href="https://github.com/Nithi67160346/Storytelling-Business-Dashboard" target="_blank" rel="noreferrer" style="text-decoration:underline;font-weight:700;">https://github.com/Nithi67160346/Storytelling-Business-Dashboard</a></div>
-          <div><strong>รายงานฉบับสมบูรณ์ (Report Document):</strong> <code>BUSINESS_DASHBOARD_STORYTELLING.md</code> (ครอบคลุมทั้ง 30 สไลด์ของอาจารย์)</div>
-          <div><strong>วิธีการเปิดใช้งาน:</strong> ดับเบิลคลิกไฟล์ <code>start.cmd</code> หรือรันคำสั่ง <code>npm run dev</code> ในโฟลเดอร์นี้เพื่อเปิดใช้งานทันที</div>
+          <div><strong>รายงานประกอบ:</strong> <code>BUSINESS_DASHBOARD_STORYTELLING.md</code></div>
+          <div><strong>วิธีการเปิดใช้งาน:</strong> ดับเบิลคลิกไฟล์ <code>start.cmd</code> หรือรัน <code>npm run dev</code></div>
         </div>
       </div>
     </div>

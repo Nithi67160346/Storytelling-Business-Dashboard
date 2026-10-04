@@ -191,7 +191,7 @@ body {
   display: flex;
 }
 
-/* Storytelling Headline Callout (Slide 18) */
+/* Storytelling Headline Callout */
 .storyline-card {
   background: var(--surface);
   border-left: 6px solid var(--danger);
@@ -272,7 +272,7 @@ body {
   line-height: 1.5;
 }
 
-/* Decision Backward Flow (Slide 7) */
+/* Decision Backward Flow */
 .decision-bar {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -817,7 +817,7 @@ body {
   background: #15803d;
 }
 
-/* Canvas 6-Box Grid (Slide 29) */
+/* Canvas 6-Box Grid */
 .canvas-container-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

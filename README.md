@@ -2,8 +2,7 @@
 # Demandly — Storytelling Business Dashboard & BI Canvas
 ## รายวิชา Business Idea Creation & Data Warehouse / Business Intelligence
 
-โปรเจกต์เว็บแอปพลิเคชัน Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard) ออกแบบตามหลักสูตรการสอนในเอกสาร `BusinessDashboard.pdf` ครบทุกหัวข้อ
-เพื่อตอบโจทย์ทางธุรกิจของสตาร์ทอัพ **Demandly (AI Demand Forecasting & Healthcare Inventory Logistics)**
+โปรเจกต์เว็บแอปพลิเคชัน Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard) สำหรับสตาร์ทอัพ **Demandly (AI Demand Forecasting & Healthcare Inventory Logistics)**
 
 ## 🚀 วิธีการเปิดใช้งาน Web Application
 
@@ -37,7 +36,7 @@ D:\University\KPI\
 ├── package.json                         # Node.js NPM dependencies & scripts
 ├── vite.config.js                       # Vite Configuration
 ├── start.cmd                            # ตัวเรียกเปิดเว็บด้วยการคลิกครั้งเดียว
-├── BUSINESS_DASHBOARD_STORYTELLING.md   # รายงานส่งงานฉบับสมบูรณ์ (ครอบคลุมครบ 30 สไลด์)
+├── BUSINESS_DASHBOARD_STORYTELLING.md   # รายงานส่งงานฉบับสมบูรณ์
 ├── README.md                            # คู่มือการใช้งานนี้
 ├── BusinessDashboard.pdf                # เอกสารโจทย์และสไลด์บรรยายของอาจารย์
 └── datasets/                            # ชุดข้อมูลที่ใช้ในระบบ

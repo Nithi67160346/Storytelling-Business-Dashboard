@@ -401,7 +401,7 @@ function renderAll() {
   renderMembers();
 }
 
-// Render Storytelling Headline (Slide 18)
+// Render Storytelling Headline
 function renderHeadline(data) {
   const card = document.getElementById("storyline-card");
   const pill = document.getElementById("story-pill");
@@ -421,7 +421,7 @@ function renderHeadline(data) {
     pill.className = "story-pill pill-success";
     pill.textContent = "อนุมัติ Action เรียบร้อยแล้ว";
     text.innerHTML = `✅ <strong>แผนรองรับเสร็จสมบูรณ์:</strong> ดำเนินการสั่งซื้อด่วนจำนวน ${data.actionQty.toLocaleString()} ชิ้น และจัดการโยกย้ายสต็อกสำหรับ ${data.name} เรียบร้อยแล้ว คาดการณ์ Stock Cover จะฟื้นกลับสู่ระดับ 32.5 วันอย่างปลอดภัย`;
-    action.innerHTML = `<strong>สถานะปัจจุบัน:</strong> ออกใบคำขอเบิก/สั่งซื้อในระบบ ERP แล้ว · หัวหน้าคลังกำลังประสานงานจัดส่ง`;
+    action.innerHTML = `<strong>สถานะปัจจุบัน:</strong> บันทึกการอนุมัติแล้ว · รอฝ่ายคลังดำเนินการจัดส่ง`;
     return;
   }
 
@@ -482,7 +482,7 @@ function renderKpis(data) {
   }
 }
 
-// Render SVG Chart (Slide 14 & 15)
+// Render SVG Chart
 function renderChart() {
   const data = SKU_DATA[currentSku];
   const container = document.getElementById("chart-svg-wrap");
