@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "Demandly - AI Demand Forecasting Platform",
+  "course": "Business Idea Creation & Data Warehouse / BI",
+  "schema_type": "Star Schema",
+  "grain": "Daily Transaction per Product SKU per Regional Distribution Center (DC)",
+  "fact_table": {
+    "table_name": "fact_demand_sales",
+    "description": "ตารางข้อเท็จจริงเก็บยอดขายรายวัน ระดับสต็อกคงคลัง และผลการพยากรณ์อุปสงค์",
+    "primary_key": "sales_fact_id",
+    "foreign_keys": [
+      { "column": "date_key", "references": "dim_date.date_key" },
+      { "column": "product_key", "references": "dim_product.product_key" },
+      { "column": "region_key", "references": "dim_region.region_key" },
+      { "column": "scenario_key", "references": "dim_scenario.scenario_key" }
+    ],
+    "measures": [
+      {
+        "name": "sales_quantity",
+        "type": "INTEGER",
+        "description": "จำนวนหน่วยสินค้าที่ขายจริงในวันนั้น"
+      },
+      {
+        "name": "inventory_snapshot",
+        "type": "INTEGER",
+        "description": "จำนวนสต็อกคงเหลือพร้อมจำหน่าย ณ สิ้นวัน (23:59 น.)"
+      },
+      {
+        "name": "forecast_demand_qty",
+        "type": "INTEGER",
+        "description": "ปริมาณอุปสงค์คาดการณ์ล่วงหน้า 30 วันจากโมเดล AI"
+      },
+      {
+        "name": "stock_cover_days",
+        "type": "DECIMAL(5,1)",
+        "formula": "inventory_snapshot / (forecast_demand_qty / 30)",
+        "description": "จำนวนวันที่สต็อกปัจจุบันสามารถครอบคลุมอุปสงค์ได้"
+      },
+      {
+        "name": "safety_stock_threshold",
+        "type": "INTEGER",
+        "description": "ระดับสต็อกกันชนขั้นต่ำที่ต้องรักษาไว้ (Safety Stock 21 วัน)"
+      },
+      {
+        "name": "reorder_point",
+        "type": "INTEGER",
+        "formula": "(Daily Demand * Lead Time) + Safety Stock",
+        "description": "จุดสั่งซื้อซ้ำฉุกเฉินเมื่อสต็อกลดลงถึงระดับนี้"
+      },
+      {
+        "name": "revenue_thb",
+        "type": "DECIMAL(12,2)",
+        "description": "มูลค่ายอดขายสุทธิ (บาท)"
+      }
+    ]
+  },
+  "dimension_tables": [
+    {
+      "table_name": "dim_product",
+      "description": "มิติข้อมูลสินค้าและเวชภัณฑ์",
+      "primary_key": "product_key",
+      "attributes": [
+        { "name": "product_code", "type": "VARCHAR(20)", "example": "TK-A-001" },
+        { "name": "product_name", "type": "VARCHAR(100)", "example": "Test Kit A (Rapid Diagnostic)" },
+        { "name": "category", "type": "VARCHAR(50)", "example": "Diagnostic & Screening" },
+        { "name": "unit_cost", "type": "DECIMAL(10,2)", "example": 85.00 },
+        { "name": "unit_price", "type": "DECIMAL(10,2)", "example": 150.00 },
+        { "name": "shelf_life_days", "type": "INTEGER", "example": 730 },
+        { "name": "supplier_name", "type": "VARCHAR(100)", "example": "BioTech Innovations Ltd." }
+      ]
+    },
+    {
+      "table_name": "dim_region",
+      "description": "มิติข้อมูลศูนย์กระจายสินค้าและภูมิภาค",
+      "primary_key": "region_key",
+      "attributes": [
+        { "name": "region_code", "type": "VARCHAR(10)", "example": "BKK" },
+        { "name": "region_name", "type": "VARCHAR(50)", "example": "กรุงเทพฯ และปริมณฑล" },
+        { "name": "dc_hub_name", "type": "VARCHAR(50)", "example": "Bangkok Central DC Hub" },
+        { "name": "lead_time_days", "type": "INTEGER", "example": 14 },
+        { "name": "sla_target_days", "type": "INTEGER", "example": 2 }
+      ]
+    },
+    {
+      "table_name": "dim_date",
+      "description": "มิติข้อมูลเวลาและปฏิทิน",
+      "primary_key": "date_key",
+      "attributes": [
+        { "name": "full_date", "type": "DATE", "example": "2025-06-01" },
+        { "name": "day_of_week", "type": "VARCHAR(15)", "example": "Sunday" },
+        { "name": "calendar_month", "type": "INTEGER", "example": 6 },
+        { "name": "fiscal_quarter", "type": "VARCHAR(5)", "example": "Q2" },
+        { "name": "year", "type": "INTEGER", "example": 2025 },
+        { "name": "is_holiday", "type": "BOOLEAN", "example": false },
+        { "name": "is_outbreak_period", "type": "BOOLEAN", "example": true }
+      ]
+    },
+    {
+      "table_name": "dim_scenario",
+      "description": "มิติข้อมูลสถานการณ์ภายนอกที่ส่งผลต่ออุปสงค์",
+      "primary_key": "scenario_key",
+      "attributes": [
+        { "name": "scenario_name", "type": "VARCHAR(50)", "example": "Epidemic Wave Spike" },
+        { "name": "epidemic_index", "type": "DECIMAL(4,2)", "example": 1.45 },
+        { "name": "mobility_index", "type": "DECIMAL(4,2)", "example": 0.82 },
+        { "name": "macro_multiplier", "type": "DECIMAL(4,2)", "example": 1.40 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "demandly-business-dashboard-kpi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Storytelling Business Dashboard for Business Idea Creation & Data Warehouse",
+  "scripts": {
+    "dev": "vite --port 3000 --open",
+    "build": "vite build",
+    "preview": "vite preview --port 3000",
+    "start": "python -m http.server 3000"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

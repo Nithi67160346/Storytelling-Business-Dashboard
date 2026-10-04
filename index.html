@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demandly — Storytelling Business Dashboard & BI Canvas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- Header Banner -->
+  <header class="header-hero">
+    <div class="header-top">
+      <span class="badge-tag">Business Idea Creation · BI &amp; Dashboard Design</span>
+      <div class="header-meta-info">
+        <span><span class="live-dot"></span> ข้อมูลสด: วันนี้ 09:42 น. (Latency &lt; 5 นาที)</span>
+        <span>|</span>
+        <span>Model: Chronos-AI Ensemble v2.4</span>
+      </div>
+    </div>
+
+    <div class="header-title-wrap">
+      <h1 class="header-title">Demandly — AI Demand Forecasting &amp; Inventory Risk Dashboard</h1>
+      <p class="header-desc">
+        ระบบ Dashboard เชิงเล่าเรื่อง (Storytelling Dashboard) ออกแบบตามหลัก Decision Backward และ BI Canvas (จาก BusinessDashboard.pdf)
+        เพื่อวิเคราะห์อุปสงค์และป้องกันวิกฤตสต็อกเวชภัณฑ์ขาดแคลนสำหรับสตาร์ทอัพในวิชา Business Idea Creation
+      </p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-nav-tabs" aria-label="แถบเมนูส่งงาน">
+      <button type="button" class="nav-tab-btn active" data-tab="dashboard">
+        📊 1. Storytelling Dashboard
+      </button>
+      <button type="button" class="nav-tab-btn" data-tab="data">
+        📁 2. Data ที่ใช้ (Star Schema &amp; CSV)
+      </button>
+      <button type="button" class="nav-tab-btn" data-tab="canvas">
+        📋 3. Dashboard Brief Canvas (Slide 29)
+      </button>
+      <button type="button" class="nav-tab-btn" data-tab="group">
+        👥 4. รายชื่อกลุ่ม (Group Members)
+      </button>
+    </nav>
+  </header>
+
+  <!-- TAB 1: STORYTELLING DASHBOARD -->
+  <main id="tab-dashboard" class="tab-panel active">
+
+    <!-- Storytelling Headline Box (Slide 18) -->
+    <section id="storyline-card" class="storyline-card">
+      <div class="storyline-top">
+        <span id="story-pill" class="story-pill pill-danger">🚨 สัญญาณวิกฤตสต็อก (Critical Alert)</span>
+        <span class="formula-tag">สูตร Data Storytelling: <strong>ตัวเลขสำคัญ + ทิศทาง + สาเหตุที่น่าสงสัย + Action</strong></span>
+      </div>
+      <div id="storyline-text" class="storyline-text">
+        กำลังโหลดข้อมูลเชิงเล่าเรื่อง...
+      </div>
+      <div id="storyline-action" class="storyline-action-box">
+        กำลังประมวลผลคำแนะนำ...
+      </div>
+    </section>
+
+    <!-- Decision Backward Flow Bar (Slide 7) -->
+    <section class="decision-bar">
+      <div class="step-item">
+        <span class="step-kicker">1. Decision</span>
+        <span class="step-name">อนุมัติ PO &amp; ย้ายสต็อก</span>
+        <span class="step-detail">สั่งด่วนเพื่อป้องกันของขาด</span>
+      </div>
+      <span class="step-separator">→</span>
+      <div class="step-item">
+        <span class="step-kicker">2. Signal</span>
+        <span class="step-name">Demand Spike +40%</span>
+        <span class="step-detail">สัญญาณการระบาดใน กทม.</span>
+      </div>
+      <span class="step-separator">→</span>
+      <div class="step-item">
+        <span class="step-kicker">3. Metric</span>
+        <span class="step-name">Cover Days 17.8 วัน</span>
+        <span class="step-detail">ต่ำกว่าเกณฑ์ 21 วัน</span>
+      </div>
+      <span class="step-separator">→</span>
+      <div class="step-item">
+        <span class="step-kicker">4. Data</span>
+        <span class="step-name">Fact Demand &amp; Sales</span>
+        <span class="step-detail">Daily x SKU x DC Hub</span>
+      </div>
+      <span class="step-separator">→</span>
+      <div class="step-item">
+        <span class="step-kicker">5. Design</span>
+        <span class="step-name">Visual Alert &amp; Matrix</span>
+        <span class="step-detail">ปุ่ม Take Action ทันที</span>
+      </div>
+    </section>
+
+    <!-- Interactive Filters Toolbar -->
+    <section class="control-bar">
+      <div class="filter-group">
+        <div class="filter-unit">
+          <label for="select-sku" class="filter-label">เลือกสินค้า (SKU Focus)</label>
+          <select id="select-sku" class="filter-select">
+            <option value="test-kit-a">Test Kit A (วิกฤต - สต็อกขาดใน 18 วัน)</option>
+            <option value="mask-c">Medical Mask Level 3 (เฝ้าระวัง - 25 วัน)</option>
+            <option value="antigen-e">Antigen Extraction (เฝ้าระวัง - 26 วัน)</option>
+            <option value="gloves-b">Nitrile Gloves M (ปกติ - 39 วัน)</option>
+            <option value="syringe-d">Safety Syringe 5ml (ปกติ - 44 วัน)</option>
+          </select>
+        </div>
+
+        <div class="filter-unit">
+          <label for="select-region" class="filter-label">ภูมิภาค (Region Hub)</label>
+          <select id="select-region" class="filter-select">
+            <option value="all">ทุกภูมิภาคทั่วประเทศ (National)</option>
+            <option value="bkk">กรุงเทพฯ และปริมณฑล (DC หลัก)</option>
+            <option value="central">ภาคกลาง (Hub อยุธยา)</option>
+            <option value="east">ภาคตะวันออก (Hub ชลบุรี)</option>
+            <option value="south">ภาคใต้ (Hub สุราษฎร์ฯ)</option>
+            <option value="north">ภาคเหนือ (Hub เชียงใหม่)</option>
+          </select>
+        </div>
+
+        <div class="filter-unit">
+          <label for="select-scenario" class="filter-label">สถานการณ์ (Scenario)</label>
+          <select id="select-scenario" class="filter-select">
+            <option value="outbreak">โรคระบาดฉับพลัน (Epidemic Wave)</option>
+            <option value="baseline">ฤดูกาลปกติ (Seasonal Baseline)</option>
+            <option value="disruption">การจัดส่งล่าช้า (Supply Delay)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Persona Switcher (Slide 8 & 12) -->
+      <div class="filter-unit">
+        <span class="filter-label">มุมมองตามตำแหน่งงาน (Persona)</span>
+        <div class="persona-switch">
+          <button type="button" class="persona-btn active" data-persona="tactical">Tactical (Planner)</button>
+          <button type="button" class="persona-btn" data-persona="strategic">Strategic (VP Lead)</button>
+          <button type="button" class="persona-btn" data-persona="operational">Operational (DC Staff)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 KPI Cards with 5-Field Metric Definition Tooltip (Slide 10 & 15) -->
+    <section class="kpi-grid">
+      <!-- KPI 1 -->
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-title">Forecast Demand (30D)</span>
+          <button type="button" class="info-btn" data-metric="forecastDemand" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+        </div>
+        <div class="kpi-value-row">
+          <span id="kpi-demand-val" class="kpi-value">20,430</span>
+          <span id="kpi-demand-badge" class="kpi-badge pill-danger">↑ 40.0% MoM</span>
+        </div>
+        <div class="kpi-bottom">
+          <span>เป้าหมายงบประมาณ: 18,500</span>
+          <span>Diagnostic &amp; Screening</span>
+        </div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-title">Stock Cover Days</span>
+          <button type="button" class="info-btn" data-metric="coverDays" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+        </div>
+        <div class="kpi-value-row">
+          <span id="kpi-cover-val" class="kpi-value">17.8 วัน</span>
+          <span id="kpi-cover-badge" class="kpi-badge pill-danger">วิกฤต (&lt;21 วัน)</span>
+        </div>
+        <div class="kpi-bottom">
+          <span>สต็อกคงคลัง: 12,100 ชิ้น</span>
+          <span>เกณฑ์ปลอดภัย: 21 วัน</span>
+        </div>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-title">Forecast Accuracy (WAPE)</span>
+          <button type="button" class="info-btn" data-metric="wapeAccuracy" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+        </div>
+        <div class="kpi-value-row">
+          <span id="kpi-acc-val" class="kpi-value">91.2%</span>
+          <span id="kpi-acc-badge" class="kpi-badge pill-success">WAPE 8.8%</span>
+        </div>
+        <div class="kpi-bottom">
+          <span>Holdout Validation 28 วัน</span>
+          <span>เกณฑ์เป้าหมาย: &ge; 90%</span>
+        </div>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-title">Stockout Risk SKUs</span>
+          <button type="button" class="info-btn" data-metric="riskSkus" title="ดูนิยาม 5 ช่องของ Metric">ℹ</button>
+        </div>
+        <div class="kpi-value-row">
+          <span id="kpi-risk-val" class="kpi-value">3 รายการ</span>
+          <span id="kpi-risk-badge" class="kpi-badge pill-warning">ต้องลงมือแก้ไข</span>
+        </div>
+        <div class="kpi-bottom">
+          <span>มูลค่าเสี่ยง: 1,840,000 บาท</span>
+          <span>เป้าหมายองค์กร: 0 SKU</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart Row (Slide 14 & 15: Main Story Chart + Sorted Bar Chart) -->
+    <section class="chart-row">
+      <!-- Main Story Line Chart -->
+      <article class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3 class="panel-title">แนวโน้มยอดขายจริง vs พยากรณ์ AI เทียบเกณฑ์ Safety Stock</h3>
+            <p class="panel-subtitle">แสดงข้อมูลจริง 6 เดือน + พยากรณ์ล่วงหน้า 4 เดือน พร้อมช่วงความไม่แน่นอน</p>
+          </div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-line" style="background:#2563eb;"></span> ข้อมูลขายจริง (Actual)</span>
+            <span class="legend-item"><span class="legend-line" style="background:#7c3aed;border-top:2px dashed #7c3aed;"></span> พยากรณ์ AI (Forecast)</span>
+            <span class="legend-item"><span class="legend-line" style="background:#d97706;border-top:2px dashed #d97706;"></span> Safety Stock (15,000)</span>
+            <span class="legend-item"><span class="legend-line" style="background:#dc2626;border-top:2px dashed #dc2626;"></span> Danger Line</span>
+          </div>
+        </div>
+
+        <div id="chart-svg-wrap" class="chart-svg-box">
+          <!-- Dynamic SVG Chart injected by app.js -->
+        </div>
+      </article>
+
+      <!-- Sorted Bar Chart for Stock Cover Days (Slide 13 & 14) -->
+      <article class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3 class="panel-title">Stock Cover Days ทุก SKU</h3>
+            <p class="panel-subtitle">จัดอันดับจากวิกฤตที่สุด (Length &amp; Position Encoding)</p>
+          </div>
+        </div>
+
+        <div id="sorted-bars-wrap" class="sorted-list">
+          <!-- Injected by app.js -->
+        </div>
+
+        <div style="margin-top:14px;padding:8px 12px;background:#f8fafc;border-radius:6px;font-size:11px;color:#64748b;">
+          เส้นประสีส้ม = เกณฑ์ Safety Stock (21 วัน) หากแถบอยู่ซ้ายกว่าเส้น ต้องลงมือจัดซื้อ/ย้ายสต็อกด่วน
+        </div>
+      </article>
+    </section>
+
+    <!-- Exception Table & Action Support (Slide 17 Alert Design) -->
+    <section class="panel-card">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">ตารางข้อยกเว้นและการตัดสินใจ (Exception List &amp; Action-Oriented Decision)</h3>
+          <p class="panel-subtitle">ตอบคำถาม: ใครต้องรับ Alert นี้? รับแล้วต้องทำอะไร? ถ้าไม่ทำจะเกิดความเสียหายอะไร?</p>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ระดับความเสี่ยง</th>
+              <th>สินค้า / รหัส SKU</th>
+              <th>สัญญาณที่ตรวจพบ (Signal)</th>
+              <th>ผลกระทบทางธุรกิจหากไม่ทำ</th>
+              <th>Action ที่ต้องดำเนินการ</th>
+              <th>การอนุมัติ</th>
+            </tr>
+          </thead>
+          <tbody id="action-table-body">
+            <!-- Injected by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Trust Layer (Slide 19) -->
+    <footer class="trust-bar">
+      <span><span class="trust-check">✓</span> <strong>Data Freshness:</strong> อัปเดตทุก 15 นาที (ล่าสุด 09:42 น.)</span>
+      <span><span class="trust-check">✓</span> <strong>Semantic Layer:</strong> นิยามตรงกันระหว่างทีม Sales, Warehouse, และ Finance</span>
+      <span><span class="trust-check">✓</span> <strong>Reconciliation:</strong> เชื่อมโยงระบบ ERP &amp; PostgreSQL 100%</span>
+      <span><span class="trust-check">✓</span> <strong>Data Quality Score:</strong> 98.4% (ผ่านเกณฑ์มาตรฐาน)</span>
+    </footer>
+
+  </main>
+
+  <!-- TAB 2: DATA USED & STAR SCHEMA (โจทย์ข้อ 1) -->
+  <section id="tab-data" class="tab-panel">
+    <div class="panel-card">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">โจทย์ข้อ 1: ส่ง Data ที่ใช้ (Data Warehouse &amp; Star Schema)</h3>
+          <p class="panel-subtitle">โครงสร้างตาราง Fact, Dimensions, Data Dictionary และไฟล์ข้อมูลตัวจริงที่ใช้ในการวิเคราะห์</p>
+        </div>
+      </div>
+
+      <!-- Download Ribbon -->
+      <div class="download-ribbon">
+        <div>
+          <strong style="color:#166534;font-size:14px;">📥 ดาวน์โหลดชุดข้อมูลจำลอง 5 สถานการณ์ (รวม 273,000 แถว)</strong>
+          <p style="font-size:12px;color:#15803d;margin-top:2px;">
+            ไฟล์ข้อมูลที่ใช้จริงในโปรเจกต์ Demandly อยู่ในโฟลเดอร์ datasets/ สามารถดาวน์โหลดหรือนำเข้าผ่านระบบได้ทันที
+          </p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button type="button" id="btn-download-stable" class="download-action-btn">ดาวน์โหลด Stable Demand (CSV)</button>
+          <button type="button" id="btn-download-spike" class="download-action-btn">ดาวน์โหลด Outbreak Spike (CSV)</button>
+          <button type="button" id="btn-download-schema" class="download-action-btn" style="background:#0e9f91;">ดาวน์โหลด Star Schema (JSON)</button>
+        </div>
+      </div>
+
+      <!-- Star Schema Diagram (Slide 11) -->
+      <div class="schema-hero-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3 style="color:#ffffff;font-size:16px;">สถาปัตยกรรม Star Schema (Slide 11 ใน BusinessDashboard.pdf)</h3>
+          <span style="font-size:11px;color:#38e1cb;background:rgba(56,225,203,0.15);padding:4px 10px;border-radius:12px;">
+            Grain: Daily Transaction per Product SKU per Regional DC Hub
+          </span>
+        </div>
+
+        <div class="schema-grid">
+          <!-- Left Dimensions -->
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="schema-card-box">
+              <h4><span>dim_product</span> <small>Dimension</small></h4>
+              <ul>
+                <li><strong>product_key (PK)</strong>: INT</li>
+                <li>product_code: VARCHAR(20)</li>
+                <li>product_name: VARCHAR(100)</li>
+                <li>category: VARCHAR(50)</li>
+                <li>unit_cost: DECIMAL(10,2)</li>
+                <li>shelf_life_days: INT</li>
+              </ul>
+            </div>
+
+            <div class="schema-card-box">
+              <h4><span>dim_region</span> <small>Dimension</small></h4>
+              <ul>
+                <li><strong>region_key (PK)</strong>: INT</li>
+                <li>region_code: VARCHAR(10)</li>
+                <li>region_name: VARCHAR(50)</li>
+                <li>dc_hub_name: VARCHAR(50)</li>
+                <li>lead_time_days: INT</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Central Fact Table -->
+          <div class="schema-card-box fact">
+            <h4 style="color:#f59e0b;">
+              <span>fact_demand_sales</span> <small style="color:#fef3c7;">Fact Table</small>
+            </h4>
+            <ul>
+              <li><strong>sales_fact_id (PK)</strong>: BIGINT</li>
+              <li><strong>date_key (FK)</strong>: INT</li>
+              <li><strong>product_key (FK)</strong>: INT</li>
+              <li><strong>region_key (FK)</strong>: INT</li>
+              <li><strong>scenario_key (FK)</strong>: INT</li>
+              <li style="border-top:1px solid #2a6db5;margin:4px 0;padding-top:4px;">
+                <strong style="color:#38e1cb;">[Measure] sales_quantity</strong>: INT
+              </li>
+              <li><strong style="color:#38e1cb;">[Measure] inventory_snapshot</strong>: INT</li>
+              <li><strong style="color:#38e1cb;">[Measure] forecast_demand_qty</strong>: INT</li>
+              <li><strong style="color:#38e1cb;">[Measure] stock_cover_days</strong>: DECIMAL(5,1)</li>
+              <li><strong style="color:#38e1cb;">[Measure] safety_stock_threshold</strong>: INT</li>
+              <li><strong style="color:#38e1cb;">[Measure] revenue_thb</strong>: DECIMAL(12,2)</li>
+            </ul>
+          </div>
+
+          <!-- Right Dimensions -->
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="schema-card-box">
+              <h4><span>dim_date</span> <small>Dimension</small></h4>
+              <ul>
+                <li><strong>date_key (PK)</strong>: INT (YYYYMMDD)</li>
+                <li>full_date: DATE</li>
+                <li>day_of_week: VARCHAR(15)</li>
+                <li>calendar_month: INT</li>
+                <li>is_outbreak_period: BOOLEAN</li>
+              </ul>
+            </div>
+
+            <div class="schema-card-box">
+              <h4><span>dim_scenario</span> <small>Dimension</small></h4>
+              <ul>
+                <li><strong>scenario_key (PK)</strong>: INT</li>
+                <li>scenario_name: VARCHAR(50)</li>
+                <li>epidemic_index: DECIMAL(4,2)</li>
+                <li>growth_multiplier: DECIMAL(4,2)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Dictionary Table -->
+      <h4 style="margin:20px 0 10px;font-size:15px;color:var(--text-main);">
+        Data Dictionary &amp; Semantic Definition (พจนานุกรมข้อมูล)
+      </h4>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ชื่อคอลัมน์ (Column Name)</th>
+              <th>ตาราง</th>
+              <th>ชนิดข้อมูล</th>
+              <th>Grain / ระดับข้อมูล</th>
+              <th>คำอธิบายทางธุรกิจ / สูตรการคำนวณ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sales_quantity</code></td>
+              <td>fact_demand_sales</td>
+              <td>INT</td>
+              <td>ยอดขายรายวัน</td>
+              <td>จำนวนหน่วยสินค้าที่ส่งมอบให้ลูกค้าสำเร็จในแต่ละวัน</td>
+            </tr>
+            <tr>
+              <td><code>inventory_snapshot</code></td>
+              <td>fact_demand_sales</td>
+              <td>INT</td>
+              <td>สต็อกคงคลัง ณ สิ้นวัน</td>
+              <td>ระดับสินค้าพร้อมจำหน่ายที่ตัดยอด ณ เวลา 23:59 น.</td>
+            </tr>
+            <tr>
+              <td><code>stock_cover_days</code></td>
+              <td>fact_demand_sales</td>
+              <td>DECIMAL</td>
+              <td>วันครอบคลุมสต็อก</td>
+              <td><code>inventory_snapshot / (30D Forecast / 30)</code></td>
+            </tr>
+            <tr>
+              <td><code>wape_percent</code></td>
+              <td>fact_model_eval</td>
+              <td>DECIMAL</td>
+              <td>Holdout WAPE Error</td>
+              <td><code>(Σ|Actual - Forecast| / Σ Actual) * 100</code></td>
+            </tr>
+            <tr>
+              <td><code>epidemic_index</code></td>
+              <td>dim_scenario</td>
+              <td>DECIMAL</td>
+              <td>ดัชนีตรวจจับการระบาด</td>
+              <td>ดัชนีคำค้นหาและสถิติผู้ป่วยจากกระทรวงสาธารณสุข</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Raw Data Preview -->
+      <h4 style="margin:24px 0 10px;font-size:15px;color:var(--text-main);">
+        ตัวอย่างข้อมูลจริง (Sample Rows จาก datasets/04_demand_spike.csv)
+      </h4>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product Code</th>
+              <th>Product Name</th>
+              <th>Region</th>
+              <th>Sales Qty</th>
+              <th>Inventory</th>
+              <th>Cover Days</th>
+              <th>Risk Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-06-01</td>
+              <td>TK-A-001</td>
+              <td>Test Kit A</td>
+              <td>Bangkok</td>
+              <td>980</td>
+              <td>12,100</td>
+              <td>17.8 วัน</td>
+              <td><span class="story-pill pill-danger">CRITICAL</span></td>
+            </tr>
+            <tr>
+              <td>2025-06-01</td>
+              <td>GL-B-014</td>
+              <td>Nitrile Gloves M</td>
+              <td>Central</td>
+              <td>1,733</td>
+              <td>68,700</td>
+              <td>39.6 วัน</td>
+              <td><span class="story-pill pill-success">NORMAL</span></td>
+            </tr>
+            <tr>
+              <td>2025-06-01</td>
+              <td>MK-C-028</td>
+              <td>Medical Mask Level 3</td>
+              <td>Eastern</td>
+              <td>1,273</td>
+              <td>31,800</td>
+              <td>25.0 วัน</td>
+              <td><span class="story-pill pill-warning">WARNING</span></td>
+            </tr>
+            <tr>
+              <td>2025-06-01</td>
+              <td>SY-D-039</td>
+              <td>Safety Syringe 5ml</td>
+              <td>North</td>
+              <td>920</td>
+              <td>41,100</td>
+              <td>44.7 วัน</td>
+              <td><span class="story-pill pill-success">NORMAL</span></td>
+            </tr>
+            <tr>
+              <td>2025-06-01</td>
+              <td>AG-E-052</td>
+              <td>Antigen Solution</td>
+              <td>South</td>
+              <td>560</td>
+              <td>14,600</td>
+              <td>26.1 วัน</td>
+              <td><span class="story-pill pill-warning">WARNING</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: DASHBOARD BRIEF CANVAS (Slide 29) -->
+  <section id="tab-canvas" class="tab-panel">
+    <div class="panel-card">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">โจทย์ Workshop: Dashboard Brief Canvas (ตาม Slide 29)</h3>
+          <p class="panel-subtitle">การวิเคราะห์ 6 ช่องตามตรรกะ Decision Backward ก่อนวาดและสร้าง Dashboard</p>
+        </div>
+      </div>
+
+      <!-- 6-Box Canvas Grid -->
+      <div class="canvas-container-grid">
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">1. User (ใครเป็นคนดูจอ?)</span>
+          <h4 class="canvas-card-title">Supply Chain Planner &amp; VP Operations</h4>
+          <div class="canvas-card-desc">
+            <strong>Tactical Persona:</strong> Supply Chain Planner ดูจอทุกเช้า เพื่อตรวจสอบ Performance Gap และหาสาเหตุ (Root Cause)
+            <br><br>
+            <strong>Strategic Persona:</strong> VP of Operations ดูภาพรวมรายเดือน เพื่อตัดสินใจงบประมาณจัดซื้อและบริหารความเสี่ยงระดับประเทศ
+          </div>
+        </div>
+
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">2. Decision (ต้องตัดสินใจอะไร?)</span>
+          <h4 class="canvas-card-title">ปรับแผนจัดซื้อฉุกเฉิน &amp; ย้ายสต็อก</h4>
+          <div class="canvas-card-desc">
+            1) ต้องออกใบสั่งซื้อเร่งด่วน (Expedite PO) สำหรับสินค้าใด และจำนวนเท่าใด?
+            <br><br>
+            2) ศูนย์กระจายสินค้าใดสามารถโอนย้ายสต็อกส่วนเกิน (Buffer Stock Transfer) มาช่วยพื้นที่วิกฤตได้ทันที?
+          </div>
+        </div>
+
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">3. Metric (KPI หลัก 3-5 ตัว)</span>
+          <h4 class="canvas-card-title">KPIs พร้อมเกณฑ์ Target ชัดเจน</h4>
+          <div class="canvas-card-desc">
+            <strong>1. Stock Cover Days:</strong> เกณฑ์ &ge; 21 วัน (ปกติ), &lt; 21 วัน (เตือน), &lt; 15 วัน (วิกฤต)
+            <br>
+            <strong>2. 30-Day Forecast:</strong> ยอดคาดการณ์เทียบงบประมาณ
+            <br>
+            <strong>3. WAPE Accuracy:</strong> เป้าหมาย &ge; 90%
+            <br>
+            <strong>4. Critical SKUs:</strong> เป้าหมาย 0 SKU
+          </div>
+        </div>
+
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">4. Grain (ข้อมูลระดับใด?)</span>
+          <h4 class="canvas-card-title">Daily x SKU x Regional DC</h4>
+          <div class="canvas-card-desc">
+            ข้อมูลจัดเก็บในระดับรายวัน (Daily Fact) ต่อรหัสสินค้า (SKU) ต่อศูนย์กระจายสินค้า (Regional DC)
+            <br><br>
+            ทำให้สามารถ Drilldown จากภาพรวมประเทศลงสู่รายสาขาและรายสินค้าได้ทันทีโดยไม่เสียความถูกต้อง
+          </div>
+        </div>
+
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">5. Dimension (ต้องตัดมุมมองด้วยอะไร?)</span>
+          <h4 class="canvas-card-title">4 มิติการตัดมุมมอง</h4>
+          <div class="canvas-card-desc">
+            <strong>1. Product:</strong> หมวดหมู่ (Diagnostic, Protection), รหัส SKU
+            <br>
+            <strong>2. Geography:</strong> กรุงเทพฯ, ภาคกลาง, ตะวันออก, เหนือ, ใต้
+            <br>
+            <strong>3. Time Horizon:</strong> 30 วัน, 60 วัน, 90 วัน
+            <br>
+            <strong>4. Scenario:</strong> โรคระบาดฉับพลัน, ฤดูกาลปกติ, ซัพพลายสะดุด
+          </div>
+        </div>
+
+        <div class="canvas-card">
+          <span class="canvas-card-kicker">6. Action (เห็นแล้วทำอะไรต่อ?)</span>
+          <h4 class="canvas-card-title">Action ทางธุรกิจที่ชัดเจน</h4>
+          <div class="canvas-card-desc">
+            <strong>1. One-Click PO Expedite:</strong> ส่งคำขอสั่งซื้อเร่งด่วนเข้าสู่ระบบ ERP ทันที
+            <br>
+            <strong>2. Inter-DC Stock Transfer:</strong> ออกใบคำขอเบิกย้ายสินค้าข้ามคลังอัตโนมัติ
+            <br>
+            <strong>3. ป้องกัน Stockout:</strong> รักษา SLA และลดความสูญเสียยอดขาย
+          </div>
+        </div>
+      </div>
+
+      <!-- Wireframe Layout & Chart Rationale -->
+      <div style="margin-top:24px;padding:20px;background:#f8fafc;border-radius:10px;border:1px solid var(--border);">
+        <h4 style="margin:0 0 12px;color:var(--text-main);font-size:15px;">
+          การเลือกชาร์ตและโครงสร้าง Wireframe (Visual Encoding ตาม Slide 13 - 17)
+        </h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;font-size:13px;color:#334155;">
+          <div>
+            <strong style="color:var(--blue);">1. Main Story Chart (Line + Area):</strong>
+            <p style="margin-top:4px;">
+              เลือก Line Chart เพื่อแสดง <em>Trend over time</em> (Slide 14) เปรียบเทียบ Actual vs Forecast พร้อมเส้น Threshold สองระดับ เพื่อให้สมองมองเห็นช่องว่างความเสี่ยงในเสี้ยววินาที
+            </p>
+          </div>
+          <div>
+            <strong style="color:var(--primary);">2. Sorted Bar Chart:</strong>
+            <p style="margin-top:4px;">
+              เลือก Sorted Horizontal Bar Chart สำหรับ Stock Cover Days เพราะ <em>Length และ Position</em> (Slide 13) ทำให้อ่านและเปรียบเทียบความเสี่ยงของแต่ละ SKU ได้แม่นยำที่สุด
+            </p>
+          </div>
+          <div>
+            <strong style="color:var(--danger);">3. Alert &amp; Exception Design:</strong>
+            <p style="margin-top:4px;">
+              ออกแบบระบบแจ้งเตือนแบบ Action-Oriented (Slide 17) ระบุชัดเจนว่าใครต้องรับ ผลกระทบคืออะไร และมีปุ่ม Take Action ทันที ป้องกัน Anti-pattern ปล่อยสัญญาณเตือนค้างไว้
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: GROUP MEMBERS (โจทย์ข้อ 3) -->
+  <section id="tab-group" class="tab-panel">
+    <div class="panel-card">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">โจทย์ข้อ 3: รายชื่อกลุ่ม (รายวิชา Business Idea Creation)</h3>
+          <p class="panel-subtitle">ข้อมูลสมาชิกผู้จัดทำโครงงานระบบ Demandly AI Demand Forecasting &amp; Dashboard Design</p>
+        </div>
+      </div>
+
+      <div id="members-grid-wrap" class="member-list-grid">
+        <!-- Injected by app.js -->
+      </div>
+
+      <!-- Repository Info (โจทย์ข้อ 4) -->
+      <div style="margin-top:28px;padding:22px;background:#f0f9ff;border-radius:12px;border:1px solid #bae6fd;">
+        <h4 style="margin:0 0 10px;color:#0369a1;font-size:15px;">
+          โจทย์ข้อ 4: ข้อมูลสำหรับการส่งงานในรูปแบบ Repository
+        </h4>
+        <div style="font-size:13px;color:#0c4a6e;line-height:1.75;">
+          <div><strong>GitHub Repository:</strong> <a href="https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting" target="_blank" rel="noreferrer" style="text-decoration:underline;font-weight:700;">https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting</a></div>
+          <div><strong>รายงานฉบับสมบูรณ์ (Report Document):</strong> <code>BUSINESS_DASHBOARD_STORYTELLING.md</code> (ครอบคลุมทั้ง 30 สไลด์ของอาจารย์)</div>
+          <div><strong>วิธีการเปิดใช้งาน:</strong> ดับเบิลคลิกไฟล์ <code>start.cmd</code> หรือรันคำสั่ง <code>npm run dev</code> ในโฟลเดอร์นี้เพื่อเปิดใช้งานทันที</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
