@@ -187,7 +187,7 @@ D:\University\KPI\
 ```
 
 ### 6.2 ลิงก์ GitHub Repository
-- **GitHub Repository URL:** [https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting](https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting)
+- **GitHub Repository URL:** [https://github.com/Nithi67160346/Storytelling-Business-Dashboard](https://github.com/Nithi67160346/Storytelling-Business-Dashboard)
 
 ### 6.3 วิธีการเปิดใช้งาน Web Application
 1. **วิธีที่ 1 (สะดวกที่สุด - ดับเบิลคลิก):**  

@@ -28,7 +28,7 @@
 4. **📦 ส่งเป็น Repository:**
    - โครงสร้าง Git Repository พร้อมใช้งาน
    - เอกสารรายงานฉบับสมบูรณ์: `BUSINESS_DASHBOARD_STORYTELLING.md`
-   - ลิงก์ GitHub: [https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting](https://github.com/Nithi67160346/Web-Application-AI-Demand-Forecasting)
+   - ลิงก์ GitHub: [https://github.com/Nithi67160346/Storytelling-Business-Dashboard](https://github.com/Nithi67160346/Storytelling-Business-Dashboard)
 
 ---
 
